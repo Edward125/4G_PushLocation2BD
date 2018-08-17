@@ -1,0 +1,8 @@
+*****************************************【12:20:26】*****************************************
+【ErrorType】System.Net.WebException
+【TargetSite】System.Net.WebResponse GetResponse()
+【Message】无法连接到远程服务器
+【Source】System
+【StackTrace】   在 System.Net.HttpWebRequest.GetResponse()
+   在 _4G记录仪北斗平台位置推送.Form1.HttpGet(String url) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 269
+

@@ -1,0 +1,8 @@
+*****************************************【16:24:31】*****************************************
+【ErrorType】System.Net.WebException
+【TargetSite】System.Net.WebResponse GetResponse()
+【Message】请求被中止: 操作超时。
+【Source】System
+【StackTrace】   在 System.Net.HttpWebRequest.GetResponse()
+   在 _4G记录仪北斗平台位置推送.Form1.HttpGet(String url) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 258
+

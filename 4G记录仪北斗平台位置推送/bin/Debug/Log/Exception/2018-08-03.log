@@ -1,0 +1,110 @@
+*****************************************【13:57:26】*****************************************
+【ErrorType】System.UnauthorizedAccessException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】对路径“E:\”的访问被拒绝。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1042
+
+*****************************************【13:58:41】*****************************************
+【ErrorType】System.IO.DirectoryNotFoundException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】未能找到路径“C:\Users\Channing\Desktop\bin\”的一部分。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1042
+
+*****************************************【14:01:13】*****************************************
+【ErrorType】System.UnauthorizedAccessException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】对路径“E:\”的访问被拒绝。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1042
+
+*****************************************【14:18:34】*****************************************
+【ErrorType】System.UnauthorizedAccessException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】对路径“E:\”的访问被拒绝。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1087
+
+*****************************************【14:22:32】*****************************************
+【ErrorType】System.UnauthorizedAccessException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】对路径“E:\”的访问被拒绝。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1087
+
+*****************************************【14:30:20】*****************************************
+【ErrorType】System.UnauthorizedAccessException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】对路径“E:\”的访问被拒绝。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1089
+
+*****************************************【15:48:03】*****************************************
+【ErrorType】System.IO.DirectoryNotFoundException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】未能找到路径“D:\HengAn\SYS_HA_1533282483.txt”的一部分。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1096
+
+*****************************************【15:48:18】*****************************************
+【ErrorType】System.IO.DirectoryNotFoundException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】未能找到路径“D:\HengAn\SYS_HA_1533282498.txt”的一部分。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1096
+
+*****************************************【15:48:33】*****************************************
+【ErrorType】System.IO.DirectoryNotFoundException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】未能找到路径“D:\HengAn\SYS_HA_1533282513.txt”的一部分。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1096
+
+*****************************************【15:54:42】*****************************************
+【ErrorType】System.IO.DirectoryNotFoundException
+【TargetSite】Void WinIOError(Int32, System.String)
+【Message】未能找到路径“D:\HengAn\SYS_HA_1533282782.txt”的一部分。
+【Source】mscorlib
+【StackTrace】   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   在 System.IO.File.Create(String path)
+   在 _4G记录仪北斗平台位置推送.Form1.WriteFiles(String fileName, String content) 位置 e:\AcqSys\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\Form1.cs:行号 1096
+
