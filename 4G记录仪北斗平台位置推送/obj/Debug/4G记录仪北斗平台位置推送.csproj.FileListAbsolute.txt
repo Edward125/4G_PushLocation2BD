@@ -30,3 +30,13 @@ Y:\EdwardCode\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置�
 Y:\EdwardCode\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\obj\Debug\_4G记录仪北斗平台位置推送.Form1.resources
 Y:\EdwardCode\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\obj\Debug\_4G记录仪北斗平台位置推送.Properties.Resources.resources
 Y:\EdwardCode\4G记录仪北斗平台位置推送\4G记录仪北斗平台位置推送\obj\Debug\4G记录仪北斗平台位置推送.csproj.GenerateResource.Cache
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\bin\Debug\4G记录仪北斗平台位置推送.exe.config
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\obj\Debug\4G记录仪北斗平台位置推送.exe
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\obj\Debug\4G记录仪北斗平台位置推送.pdb
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\bin\Debug\4G记录仪北斗平台位置推送.exe
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\bin\Debug\4G记录仪北斗平台位置推送.pdb
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\bin\Debug\Renci.SshNet.xml
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\obj\Debug\4G记录仪北斗平台位置推送.csprojResolveAssemblyReference.cache
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\obj\Debug\_4G记录仪北斗平台位置推送.Form1.resources
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\obj\Debug\_4G记录仪北斗平台位置推送.Properties.Resources.resources
+E:\Edward\Code\4G_PushLocation2BD\4G记录仪北斗平台位置推送\obj\Debug\4G记录仪北斗平台位置推送.csproj.GenerateResource.Cache
