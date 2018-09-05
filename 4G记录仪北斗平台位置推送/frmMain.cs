@@ -48,7 +48,7 @@ namespace _4G记录仪北斗平台位置推送
                     if (logininfo.result == 0)
                     {
                         SetListBox(lstMsg, "登录4G服务器成功！");
-                        SetListBox(lstMsg, "回调值：" + logininfo.jsession);
+                       // SetListBox(lstMsg, "回调值：" + logininfo.jsession);
                         //getuserinfo(logininfo.jsession);
 
                         btn_StartSend.Enabled = true;
@@ -56,12 +56,10 @@ namespace _4G记录仪北斗平台位置推送
 
                         btn_logon.Enabled = false;
                         btn_logout.Enabled = true;
-
-
                     }
                     else
                     {
-                        SetListBox(lstMsg, "登录4G服务器失败！Error：" + logininfo.result.ToString());
+                        SetListBox(lstMsg, "登录4G服务器失败！原因:" + getErrorMsg(logininfo.result));
                         
                     }
 
@@ -95,8 +93,7 @@ namespace _4G记录仪北斗平台位置推送
                   {
                       if (deviceinfo.result == 0)
                       {
-                          SetListBox(lstMsg, "获取设备信息成功！");
-
+                          SetListBox(lstMsg, "获取设备信息成功!");
                           //获取单位为TJXGAJ的ID（单位ID）
                           string depname = "TJXGAJ";
                           //string depname = "hengan01";
@@ -110,6 +107,7 @@ namespace _4G记录仪北斗平台位置推送
                           }
                           List<string> Deviceid = new List<string>();
                           string deviceall = string.Empty;
+                          List<string> depDList = new List<string>(); //部门设备列表
                           //SetListBox(listBox1, "获取单位 [ " + depname + " ] 所有注册执法记录仪！");
                           if (depid != -1)
                           {
@@ -119,17 +117,20 @@ namespace _4G记录仪北斗平台位置推送
                                   {
                                       Deviceid.Add(deviceinfo.vehicles[i].nm);
                                       deviceall += deviceinfo.vehicles[i].nm + ",";
-                                      SetListBox(lstMsg, deviceinfo.vehicles[i].nm);
+                                      depDList.Add(deviceinfo.vehicles[i].nm);
+                                      //SetListBox(lstMsg, deviceinfo.vehicles[i].nm);
                                   }
                               }
-
+                              SetListBox(lstMsg, "共计发现设备" + depDList.Count + "台,产品号为:" + deviceall);
                               //获取在线设备ID
                               List<string> onlinedevice = new List<string>();
                               onlinedevice = getOnlineDevice(callinfo, deviceall);
 
-                              if(onlinedevice.Count>0)
+                              if (onlinedevice.Count > 0)
                               {
-                                  for(int i=0;i<onlinedevice.Count;i++)
+                                  SetListBox(lstMsg, "发现在线设备" + onlinedevice.Count + "台.");
+
+                                  for (int i = 0; i < onlinedevice.Count; i++)
                                   {
                                       getdeviceGPS(callinfo, onlinedevice[i]);
                                   }
@@ -140,8 +141,12 @@ namespace _4G记录仪北斗平台位置推送
                                   }
                                   else
                                   {
-                                      SetListBox(lstMsg, "未产生有效的位置信息文件，不进行推送！");
+                                      SetListBox(lstMsg, "未产生有效的位置信息文件,不进行推送!");
                                   }
+                              }
+                              else
+                              {
+                                  SetListBox(lstMsg, "未发现有在线的设备.");
                               }
 
 
@@ -196,13 +201,13 @@ namespace _4G记录仪北斗平台位置推送
                     if (onlineinfo.onlines[i].online == 1)
                     {
                         online.Add(onlineinfo.onlines[i].did);
-                        SetListBox(lstMsg, "获取在线设备编号：" + onlineinfo.onlines[i].did);
+                        SetListBox(lstMsg, "获取在线设备编号:" + onlineinfo.onlines[i].did);
                     }
                 }
             }
             else
             {
-                SetListBox(lstMsg, "获取在线设备编号！Error：" + onlineinfo.result.ToString());
+                SetListBox(lstMsg, "获取在线设备编号!原因:" + onlineinfo.result.ToString());
             }
 
 
@@ -230,7 +235,7 @@ namespace _4G记录仪北斗平台位置推送
                     //获取有效GPS位置信息
                     if (getgpsstatus.status[i].lng != 0 && getgpsstatus.status[i].lat!=0)
                     {
-                        SetListBox(lstMsg, deviceid + " 地理位置：{ " + getgpsstatus.status[i].lng + " , " + getgpsstatus.status[i].lat + " } ");
+                        SetListBox(lstMsg,"获取产品:" +  deviceid + "地理位置:{" + getgpsstatus.status[i].lng + "," + getgpsstatus.status[i].lat + "}");
                         SetGPSmsg(deviceid, getgpsstatus.status[i].lng, getgpsstatus.status[i].lat, Convert.ToDateTime(getgpsstatus.status[i].gt.Split('.')[0]));
                     }
                 
@@ -238,7 +243,7 @@ namespace _4G记录仪北斗平台位置推送
             }
             else
             {
-                SetListBox(lstMsg, "获取位置信息失败！Error：" + getgpsstatus.result.ToString());
+                SetListBox(lstMsg, "获取位置信息失败!Error：" + getgpsstatus.result.ToString());
             }
 
         
@@ -456,14 +461,14 @@ namespace _4G记录仪北斗平台位置推送
             //补齐位数
             string sssaa = sss.PadLeft(2, '0');
 
-            SetListBox(lstMsg, sssaa);
+            //SetListBox(lstMsg, sssaa);
 
 
             string addinfo = sssaa + "7E";
 
             string devinfo = (headmsg + baseinfo + addinfo).ToUpper();
 
-            SetListBox(lstMsg, "数据：" + devinfo);
+            SetListBox(lstMsg, "数据:" + devinfo);
             //var strToBytes2 = System.Text.Encoding.Default.GetBytes(str2);
            
            
@@ -1273,10 +1278,8 @@ namespace _4G记录仪北斗平台位置推送
 
         private void WriteFile(object obj)
         {
-
             while (IsSend)
             {
-
                 FileName = "SYS_HA_" + GetCurrentTimeStamp().ToString() + ".txt";
 
                 FileNamePath = te_path.Text + "\\" + FileName;
@@ -1287,14 +1290,14 @@ namespace _4G记录仪北斗平台位置推送
                     {
                         if (logininfo.result == 0)
                         {
-                            SetListBox(lstMsg, "回调值：" + logininfo.jsession);
+                            //SetListBox(lstMsg, "回调值：" + logininfo.jsession);
                             getuserinfo(logininfo.jsession);
                             Thread.Sleep(1000 * 15);
 
                         }
                         else
                         {
-                            SetListBox(lstMsg, "登录4G服务器失败！Error：" + logininfo.result.ToString());
+                            SetListBox(lstMsg, "登录4G服务器失败!原因:" + getErrorMsg(logininfo.result));
 
                         }
 
@@ -1387,7 +1390,7 @@ namespace _4G记录仪北斗平台位置推送
 
                 SFTP.SFTPHelper sFTPHelper = new SFTP.SFTPHelper(te_IP.Text.Trim(), te_Port.Text.Trim(), te_username.Text.Trim(), te_Password.Text.Trim());
                 sFTPHelper.Put(FilePath, ObjectiveFilePath);
-                SetListBox(lstMsg, "向北斗平台推送位置信息文件！");
+                SetListBox(lstMsg, "向北斗平台推送位置信息文件成功!");
 
 
                 //sFTPHelper.Put("text.txt", "/home/cdha/测试/temp.txt");
@@ -1397,7 +1400,7 @@ namespace _4G记录仪北斗平台位置推送
             }
             catch (Exception ex)
             {
-                SetListBox(lstMsg, "向北斗平台FTP服务器推送位置信息文件异常……！");
+                SetListBox(lstMsg, "向北斗平台FTP服务器推送位置信息文件异常!原因:" + ex.Message);
             }
 
 

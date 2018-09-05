@@ -271,7 +271,7 @@ namespace  _4G记录仪北斗平台位置推送
                 FileInfo finfo = new FileInfo(localFullPathName);
                 if (FtpServerIP == null || FtpServerIP.Trim().Length == 0)
                 {
-                    throw new Exception("ftp上传目标服务器地址未设置！");
+                    throw new Exception("ftp上传目标服务器地址未设置!");
                 }
                 Uri uri = new Uri("ftp://" + FtpServerIP + "/" + finfo.Name);
                 reqFTP = (FtpWebRequest)FtpWebRequest.Create(uri);
