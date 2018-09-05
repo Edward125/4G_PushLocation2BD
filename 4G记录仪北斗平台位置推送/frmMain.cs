@@ -36,19 +36,65 @@ namespace _4G记录仪北斗平台位置推送
 
         private void btn_logon_Click(object sender, EventArgs e)
         {
+            //if (PingDevice(tb_ServerIP.Text))
+            //{
+            //    string command = "http://" + tb_ServerIP.Text + "/StandardApiAction_login.action?account=" + tb_UseName.Text + "&password=" + tb_Password.Text;
+            //    string text = HttpGet(command);
+
+            //   // p4g.LoginInfo logininfo = new p4g.LoginInfo();
+            //    logininfo = JsonConvert.DeserializeObject<p4g.LoginInfo>(text);
+            //    if (logininfo != null)
+            //    {
+            //        if (logininfo.result == 0)
+            //        {
+            //            SetListBox(lstMsg, "登录4G服务器成功！");
+            //           // SetListBox(lstMsg, "回调值：" + logininfo.jsession);
+            //            //getuserinfo(logininfo.jsession);
+
+            //            btn_StartSend.Enabled = true;
+            //            btn_StopSend.Enabled = false;
+
+            //            btn_logon.Enabled = false;
+            //            btn_logout.Enabled = true;
+            //        }
+            //        else
+            //        {
+            //            SetListBox(lstMsg, "登录4G服务器失败！原因:" + getErrorMsg(logininfo.result));
+                        
+            //        }
+
+            //    }
+                
+            //}
+            //else
+            //{
+            //    SetListBox(lstMsg, "服务器 [ " + tb_ServerIP.Text + " ] 不在线！");
+            //}
+            //string ss = HttpGet("http://119.23.161.197/StandardApiAction_login.action?account=hengan&password=000000");
+           // updateMessage(listBox1, "[登录]返回值：" + ss);
+
+            Login4GServer();
+        }
+
+
+
+
+        private bool Login4GServer()
+        {
+
             if (PingDevice(tb_ServerIP.Text))
             {
                 string command = "http://" + tb_ServerIP.Text + "/StandardApiAction_login.action?account=" + tb_UseName.Text + "&password=" + tb_Password.Text;
                 string text = HttpGet(command);
 
-               // p4g.LoginInfo logininfo = new p4g.LoginInfo();
+                // p4g.LoginInfo logininfo = new p4g.LoginInfo();
                 logininfo = JsonConvert.DeserializeObject<p4g.LoginInfo>(text);
                 if (logininfo != null)
                 {
                     if (logininfo.result == 0)
                     {
-                        SetListBox(lstMsg, "登录4G服务器成功！");
-                       // SetListBox(lstMsg, "回调值：" + logininfo.jsession);
+                        SetListBox(lstMsg, "登录4G服务器成功!");
+                        // SetListBox(lstMsg, "回调值：" + logininfo.jsession);
                         //getuserinfo(logininfo.jsession);
 
                         btn_StartSend.Enabled = true;
@@ -56,23 +102,28 @@ namespace _4G记录仪北斗平台位置推送
 
                         btn_logon.Enabled = false;
                         btn_logout.Enabled = true;
+                        return true;
                     }
                     else
                     {
                         SetListBox(lstMsg, "登录4G服务器失败！原因:" + getErrorMsg(logininfo.result));
-                        
+                        return false;
+
                     }
 
                 }
-                
+
             }
             else
             {
                 SetListBox(lstMsg, "服务器 [ " + tb_ServerIP.Text + " ] 不在线！");
+                return false;
             }
-            //string ss = HttpGet("http://119.23.161.197/StandardApiAction_login.action?account=hengan&password=000000");
-           // updateMessage(listBox1, "[登录]返回值：" + ss);
+
+            return false;
         }
+
+
 
 
         /// <summary>
@@ -81,6 +132,7 @@ namespace _4G记录仪北斗平台位置推送
         /// <param name="callinfo"></param>
         private void getuserinfo(string callinfo)
         {
+
             if (PingDevice(tb_ServerIP.Text))
             { 
                // string command1 = "http://" + tb_ServerIP.Text + "/StandardApiAction_login.action?account=" + tb_UseName.Text + "&password=" + tb_Password.Text;
@@ -168,7 +220,7 @@ namespace _4G记录仪北斗平台位置推送
                       }
                       else
                       {
-                          SetListBox(lstMsg, "获取用户设备信息失败！Error：" + deviceinfo.result.ToString());
+                          SetListBox(lstMsg, "获取用户设备信息失败,原因：" + getErrorMsg ( deviceinfo.result));
                       }
                   }
             
@@ -337,6 +389,10 @@ namespace _4G记录仪北斗平台位置推送
                     if (scroll)
                         listbox.TopIndex = listbox.Items.Count - (int)(listbox.Height / listbox.ItemHeight);
 
+
+                    if (listbox.Items.Count > 0)
+                        listbox.SelectedIndex = listbox.Items.Count - 1;
+
                 }), text);
             }
             else
@@ -353,6 +409,11 @@ namespace _4G记录仪北斗平台位置推送
                 listbox.Items.Add(DateTime.Now.ToString("HH:mm:ss") + " " + text);
                 if (scroll)
                     listbox.TopIndex = listbox.Items.Count - (int)(listbox.Height / listbox.ItemHeight);
+
+
+
+                if (listbox.Items.Count > 0)
+                    listbox.SelectedIndex = listbox.Items.Count - 1;
             }
         }
 
@@ -595,7 +656,7 @@ namespace _4G记录仪北斗平台位置推送
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            btn_StartSend.Enabled = false;
+           // btn_StartSend.Enabled = false;
             btn_StopSend.Enabled = false;
             btn_logon.Enabled = true;
             btn_logout.Enabled = false;
@@ -1330,9 +1391,15 @@ namespace _4G记录仪北斗平台位置推送
 
         private void btn_StopSend_Click(object sender, EventArgs e)
         {
-            IsSend = false ;
-            btn_StartSend.Enabled = true;
-            btn_StopSend.Enabled = false;
+            if (Logout4GServer())
+            {
+                grbSetting.Enabled = true;
+                IsSend = false;
+                btn_StartSend.Enabled = true;
+                btn_StopSend.Enabled = false;
+            }
+
+
 
         }
 
@@ -1346,14 +1413,24 @@ namespace _4G记录仪北斗平台位置推送
 
         private void btn_StartSend_Click(object sender, EventArgs e)
         {
-            IsSend = true;
-            if (IsSend)
+
+
+            if (Login4GServer())
             {
-                btn_StartSend.Enabled = false;
-                btn_StopSend.Enabled = true;
-                ThreadPool.QueueUserWorkItem(WriteFile);
-                
+                grbSetting.Enabled = false;
+                IsSend = true;
+                if (IsSend)
+                {
+                    btn_StartSend.Enabled = false;
+                    btn_StopSend.Enabled = true;
+                    ThreadPool.QueueUserWorkItem(WriteFile);
+
+                }
             }
+            else
+                return;
+
+
         }
 
 
@@ -1443,6 +1520,13 @@ namespace _4G记录仪北斗平台位置推送
 
         private void btn_logout_Click_1(object sender, EventArgs e)
         {
+
+            Logout4GServer();
+
+        }
+
+        private bool Logout4GServer()
+        {
             //http://119.23.161.197/StandardApiAction_logout.action?jsession=cf6b70a3-c82b-4392-8ab6-bbddce336222
             //string command = "http://" + tb_ServerIP.Text + "/StandardApiAction_login.action?account=" + tb_UseName.Text + "&password=" + tb_Password.Text;
             string command = "http://" + tb_ServerIP.Text + "/StandardApiAction_logout.action?jsession=" + logininfo.jsession;
@@ -1451,32 +1535,27 @@ namespace _4G记录仪北斗平台位置推送
             try
             {
                 p4g.LogoutInfo logoutinfo = JsonConvert.DeserializeObject<p4g.LogoutInfo>(text);
-                 //logininfo = JsonConvert.DeserializeObject<p4g.LoginInfo>(text);
+                //logininfo = JsonConvert.DeserializeObject<p4g.LoginInfo>(text);
                 if (logoutinfo.result == 0)
                 {
                     SetListBox(lstMsg, "退出4G服务器平台成功");
                     btn_logon.Enabled = true;
                     btn_logout.Enabled = false;
                     btn_StartSend.Enabled = false;
+                    return true;
                 }
                 else
                 {
                     SetListBox(lstMsg, getErrorMsg(logoutinfo.result));
-                    
+                    return false;
                 }
 
             }
             catch (Exception ex)
             {
-
                 SetListBox(lstMsg, ex.Message);
-                return;
+                return false;
             }
-           
-
-
-       
-
         }
 
 

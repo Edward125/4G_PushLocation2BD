@@ -33,15 +33,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tb_ServerIP = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_logout = new System.Windows.Forms.Button();
-            this.btn_logon = new System.Windows.Forms.Button();
             this.tb_Password = new System.Windows.Forms.TextBox();
             this.tb_UseName = new System.Windows.Forms.TextBox();
+            this.btn_StopSend = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_StartSend = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_logout = new System.Windows.Forms.Button();
+            this.btn_logon = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lstMsg = new System.Windows.Forms.ListBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grbSetting = new System.Windows.Forms.GroupBox();
             this.tb_FtpObjectivePath = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -60,13 +62,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_StartSend = new System.Windows.Forms.Button();
-            this.btn_StopSend = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.grbSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,17 +75,17 @@
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.tb_ServerIP);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.btn_logout);
-            this.groupBox2.Controls.Add(this.btn_logon);
             this.groupBox2.Controls.Add(this.tb_Password);
             this.groupBox2.Controls.Add(this.tb_UseName);
+            this.groupBox2.Controls.Add(this.btn_StopSend);
             this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.btn_StartSend);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(18, 91);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(196, 151);
+            this.groupBox2.Size = new System.Drawing.Size(189, 151);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "系统登录";
@@ -109,28 +109,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "服务器IP";
             // 
-            // btn_logout
-            // 
-            this.btn_logout.Location = new System.Drawing.Point(90, 108);
-            this.btn_logout.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(50, 28);
-            this.btn_logout.TabIndex = 6;
-            this.btn_logout.Text = "退出";
-            this.btn_logout.UseVisualStyleBackColor = true;
-            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click_1);
-            // 
-            // btn_logon
-            // 
-            this.btn_logon.Location = new System.Drawing.Point(11, 108);
-            this.btn_logon.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_logon.Name = "btn_logon";
-            this.btn_logon.Size = new System.Drawing.Size(50, 28);
-            this.btn_logon.TabIndex = 5;
-            this.btn_logon.Text = "登录";
-            this.btn_logon.UseVisualStyleBackColor = true;
-            this.btn_logon.Click += new System.EventHandler(this.btn_logon_Click);
-            // 
             // tb_Password
             // 
             this.tb_Password.Location = new System.Drawing.Point(64, 79);
@@ -151,6 +129,17 @@
             this.tb_UseName.TabIndex = 2;
             this.tb_UseName.Text = "hengan";
             // 
+            // btn_StopSend
+            // 
+            this.btn_StopSend.Location = new System.Drawing.Point(93, 114);
+            this.btn_StopSend.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_StopSend.Name = "btn_StopSend";
+            this.btn_StopSend.Size = new System.Drawing.Size(78, 28);
+            this.btn_StopSend.TabIndex = 10;
+            this.btn_StopSend.Text = "停止推送";
+            this.btn_StopSend.UseVisualStyleBackColor = true;
+            this.btn_StopSend.Click += new System.EventHandler(this.btn_StopSend_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -160,6 +149,17 @@
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "密码";
+            // 
+            // btn_StartSend
+            // 
+            this.btn_StartSend.Location = new System.Drawing.Point(6, 115);
+            this.btn_StartSend.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_StartSend.Name = "btn_StartSend";
+            this.btn_StartSend.Size = new System.Drawing.Size(72, 28);
+            this.btn_StartSend.TabIndex = 9;
+            this.btn_StartSend.Text = "开始推送";
+            this.btn_StartSend.UseVisualStyleBackColor = true;
+            this.btn_StartSend.Click += new System.EventHandler(this.btn_StartSend_Click);
             // 
             // label1
             // 
@@ -171,6 +171,28 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "账号";
             // 
+            // btn_logout
+            // 
+            this.btn_logout.Location = new System.Drawing.Point(1051, 343);
+            this.btn_logout.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(50, 28);
+            this.btn_logout.TabIndex = 6;
+            this.btn_logout.Text = "退出";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click_1);
+            // 
+            // btn_logon
+            // 
+            this.btn_logon.Location = new System.Drawing.Point(1051, 289);
+            this.btn_logon.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_logon.Name = "btn_logon";
+            this.btn_logon.Size = new System.Drawing.Size(50, 28);
+            this.btn_logon.TabIndex = 5;
+            this.btn_logon.Text = "登录";
+            this.btn_logon.UseVisualStyleBackColor = true;
+            this.btn_logon.Click += new System.EventHandler(this.btn_logon_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
@@ -179,7 +201,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(900, 238);
+            this.groupBox1.Size = new System.Drawing.Size(831, 238);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "状态命令框";
@@ -192,37 +214,37 @@
             this.lstMsg.Location = new System.Drawing.Point(14, 18);
             this.lstMsg.Margin = new System.Windows.Forms.Padding(2);
             this.lstMsg.Name = "lstMsg";
-            this.lstMsg.Size = new System.Drawing.Size(874, 208);
+            this.lstMsg.Size = new System.Drawing.Size(809, 208);
             this.lstMsg.TabIndex = 2;
             this.lstMsg.DoubleClick += new System.EventHandler(this.lstMsg_DoubleClick);
             // 
-            // groupBox3
+            // grbSetting
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.tb_FtpObjectivePath);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.te_Port);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.te_IP);
-            this.groupBox3.Controls.Add(this.te_Password);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.te_username);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.comboPushInterval);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.btn_OpenPath);
-            this.groupBox3.Controls.Add(this.te_path);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(280, 91);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(638, 151);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "参数设置";
+            this.grbSetting.BackColor = System.Drawing.Color.Transparent;
+            this.grbSetting.Controls.Add(this.tb_FtpObjectivePath);
+            this.grbSetting.Controls.Add(this.label11);
+            this.grbSetting.Controls.Add(this.label10);
+            this.grbSetting.Controls.Add(this.te_Port);
+            this.grbSetting.Controls.Add(this.label9);
+            this.grbSetting.Controls.Add(this.te_IP);
+            this.grbSetting.Controls.Add(this.te_Password);
+            this.grbSetting.Controls.Add(this.label8);
+            this.grbSetting.Controls.Add(this.te_username);
+            this.grbSetting.Controls.Add(this.label7);
+            this.grbSetting.Controls.Add(this.label6);
+            this.grbSetting.Controls.Add(this.comboPushInterval);
+            this.grbSetting.Controls.Add(this.label5);
+            this.grbSetting.Controls.Add(this.btn_OpenPath);
+            this.grbSetting.Controls.Add(this.te_path);
+            this.grbSetting.Controls.Add(this.label4);
+            this.grbSetting.Location = new System.Drawing.Point(211, 98);
+            this.grbSetting.Margin = new System.Windows.Forms.Padding(2);
+            this.grbSetting.Name = "grbSetting";
+            this.grbSetting.Padding = new System.Windows.Forms.Padding(2);
+            this.grbSetting.Size = new System.Drawing.Size(638, 151);
+            this.grbSetting.TabIndex = 7;
+            this.grbSetting.TabStop = false;
+            this.grbSetting.Text = "参数设置";
             // 
             // tb_FtpObjectivePath
             // 
@@ -411,28 +433,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btn_StartSend
-            // 
-            this.btn_StartSend.Location = new System.Drawing.Point(219, 164);
-            this.btn_StartSend.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_StartSend.Name = "btn_StartSend";
-            this.btn_StartSend.Size = new System.Drawing.Size(56, 28);
-            this.btn_StartSend.TabIndex = 9;
-            this.btn_StartSend.Text = "开始推送";
-            this.btn_StartSend.UseVisualStyleBackColor = true;
-            this.btn_StartSend.Click += new System.EventHandler(this.btn_StartSend_Click);
-            // 
-            // btn_StopSend
-            // 
-            this.btn_StopSend.Location = new System.Drawing.Point(219, 199);
-            this.btn_StopSend.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_StopSend.Name = "btn_StopSend";
-            this.btn_StopSend.Size = new System.Drawing.Size(56, 28);
-            this.btn_StopSend.TabIndex = 10;
-            this.btn_StopSend.Text = "停止推送";
-            this.btn_StopSend.UseVisualStyleBackColor = true;
-            this.btn_StopSend.Click += new System.EventHandler(this.btn_StopSend_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -459,12 +459,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(943, 506);
+            this.ClientSize = new System.Drawing.Size(862, 498);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btn_StopSend);
-            this.Controls.Add(this.btn_StartSend);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.btn_logon);
+            this.Controls.Add(this.btn_logout);
+            this.Controls.Add(this.grbSetting);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
@@ -480,8 +480,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grbSetting.ResumeLayout(false);
+            this.grbSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -501,7 +501,7 @@
         private System.Windows.Forms.ListBox lstMsg;
         private System.Windows.Forms.TextBox tb_ServerIP;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grbSetting;
         private System.Windows.Forms.Button btn_OpenPath;
         private System.Windows.Forms.TextBox te_path;
         private System.Windows.Forms.Label label4;
