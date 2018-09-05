@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Renci.SshNet;
 using System;
 using System.Collections;
@@ -98,6 +99,7 @@ namespace _4G记录仪北斗平台位置推送
 
                           //获取单位为TJXGAJ的ID（单位ID）
                           string depname = "TJXGAJ";
+                          //string depname = "hengan01";
                           int depid = -1;
                           for (int i = 0; i < deviceinfo.companys.Count; i++)
                           {
@@ -653,6 +655,25 @@ namespace _4G记录仪北斗平台位置推送
             }
 
 
+            public class LogoutInfo
+            {
+                private int _result = -1;
+                public int result 
+                { 
+                    get
+                    {
+                        return _result;
+                    }
+
+                    set
+                    {
+                        _result = value;
+                    }
+                    
+                }
+                     
+            }
+
 
             public class Companys
             {
@@ -800,9 +821,6 @@ namespace _4G记录仪北斗平台位置推送
 
             }
 
-
-        
-
             public class DeviceInfo
             {
                 /// <summary>
@@ -829,8 +847,6 @@ namespace _4G记录仪北斗平台位置推送
                      
 
             }
-
-
 
             /// <summary>
             /// 设备在线状态
@@ -1124,7 +1140,6 @@ namespace _4G记录仪北斗平台位置推送
  
             }
 
-
             /// <summary>
             /// 获取GPS状态
             /// </summary>
@@ -1334,6 +1349,7 @@ namespace _4G记录仪北斗平台位置推送
                 btn_StartSend.Enabled = false;
                 btn_StopSend.Enabled = true;
                 ThreadPool.QueueUserWorkItem(WriteFile);
+                
             }
         }
 
@@ -1424,7 +1440,157 @@ namespace _4G记录仪北斗平台位置推送
 
         private void btn_logout_Click_1(object sender, EventArgs e)
         {
+            //http://119.23.161.197/StandardApiAction_logout.action?jsession=cf6b70a3-c82b-4392-8ab6-bbddce336222
+            //string command = "http://" + tb_ServerIP.Text + "/StandardApiAction_login.action?account=" + tb_UseName.Text + "&password=" + tb_Password.Text;
+            string command = "http://" + tb_ServerIP.Text + "/StandardApiAction_logout.action?jsession=" + logininfo.jsession;
+            string text = HttpGet(command);
+            //p4g.LogoutInfo logoutinfo = new p4g.LogoutInfo();
+            try
+            {
+                p4g.LogoutInfo logoutinfo = JsonConvert.DeserializeObject<p4g.LogoutInfo>(text);
+                 //logininfo = JsonConvert.DeserializeObject<p4g.LoginInfo>(text);
+                if (logoutinfo.result == 0)
+                {
+                    SetListBox(lstMsg, "退出4G服务器平台成功");
+                    btn_logon.Enabled = true;
+                    btn_logout.Enabled = false;
+                    btn_StartSend.Enabled = false;
+                }
+                else
+                {
+                    SetListBox(lstMsg, getErrorMsg(logoutinfo.result));
+                    
+                }
 
+            }
+            catch (Exception ex)
+            {
+
+                SetListBox(lstMsg, ex.Message);
+                return;
+            }
+           
+
+
+       
+
+        }
+
+
+
+
+        private string getErrorMsg(int msgid)
+        {
+
+               //1	用户名不存在
+               //2	密码错误
+               //3	用户已停用
+               //4	用户已过期
+               //5	会话不存在
+               //6	系统出现异常
+               //7	请求参数不正确
+               //8	没有车辆或者设备的操作权限
+               //9	开始时间不得大于结束时间
+               //10	查询时间超过范围
+               //11	录像下载任务已存在
+//12	账号已存在
+//13	无操作权限
+//14	设备管理数目限制（已达到最大添加数目）
+//15	设备已存在
+//16	车辆已存在
+//17	设备已被使用
+//18	车辆不存在
+//19	设备不存在
+//20	设备不属于当前公司
+//21	设备注册数目不匹配，请检查设备数目是否超过注册数目！
+//24	网络连接异常
+
+
+            string msg = "未知的错误";
+            switch (msgid)
+            {
+                case 1:
+                    msg = "用户名不存在";
+                    break;
+                case 2:
+                    msg = "密码错误";
+                    break;
+                case 3:
+                    msg = "用户已停用";
+                    break;
+                case 4:
+                    msg = "用户已过期";
+                    break;
+                case 5:
+                    msg = "会话不存在";
+                    break;
+                case 6:
+                    msg = "系统出现异常";
+                    break;
+                case 7:
+                    msg = "请求参数不正确";
+                    break;
+                case 8:
+                    msg = "没有车辆或者设备的操作权限";
+                    break;
+                case 9:
+                    msg = "开始时间不得大于结束时间";
+                    break;
+                case 10:
+                    msg = "查询时间超过范围";
+                    break;
+                case 11:
+                    msg = "录像下载任务已存在";
+                    break;
+                case 12:
+                    msg = "账号已存在";
+                    break;
+                case 13:
+                    msg = "无操作权限";
+                    break;
+                case 14:
+                    msg = "设备管理数目限制（已达到最大添加数目）";
+                    break;
+                case 15:
+                    msg = "设备已存在";
+                    break;
+                case 16:
+                    msg = "车辆已存在";
+                    break;
+                case 17:
+                    msg = "设备已被使用";
+                    break;
+                case 18:
+                    msg = "车辆不存在";
+                    break;
+                case 19:
+                    msg = "设备不存在";
+                    break;
+                case 20:
+                    msg = "设备不属于当前公司";
+                    break;
+                case 21:
+                    msg = "设备注册数目不匹配，请检查设备数目是否超过注册数目！";
+                    break;
+                case 22:
+                    break;
+                case 23:
+                    break;
+                case 24:
+                    msg = "网络连接异常";
+                    break;
+                default:
+                    break;
+
+            }
+            return msg;
+           
+        }
+
+
+        private void lstMsg_DoubleClick(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(lstMsg.SelectedItem.ToString());
         }
 
 

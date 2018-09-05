@@ -186,14 +186,15 @@
             // 
             // lstMsg
             // 
-            this.lstMsg.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lstMsg.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lstMsg.FormattingEnabled = true;
-            this.lstMsg.ItemHeight = 10;
+            this.lstMsg.ItemHeight = 12;
             this.lstMsg.Location = new System.Drawing.Point(14, 18);
             this.lstMsg.Margin = new System.Windows.Forms.Padding(2);
             this.lstMsg.Name = "lstMsg";
-            this.lstMsg.Size = new System.Drawing.Size(874, 214);
+            this.lstMsg.Size = new System.Drawing.Size(874, 208);
             this.lstMsg.TabIndex = 2;
+            this.lstMsg.DoubleClick += new System.EventHandler(this.lstMsg_DoubleClick);
             // 
             // groupBox3
             // 
